@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package product;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "ai.preferred.thriftcity";
+
+// The product service definition.
+service ProductService {
+  // Adds a Product
+  rpc AddProduct(Product) returns (google.protobuf.Empty) {}
+  // Updates a Product
+  rpc UpdateProduct(Product) returns (google.protobuf.Empty) {}
+  // Deletes a Product
+  rpc DeleteProduct(ProductID) returns (google.protobuf.Empty) {}
+  // Adds an Image to a Product
+  rpc AddProductImage(Image) returns (google.protobuf.Empty) {}
+  // Deletes an Image from a Product
+  rpc DeleteProductImage(ImageID) returns (google.protobuf.Empty) {}
+}
+
+// The request message containing the Product.
+message Product {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  repeated string categories = 4;
+}
+
+// The request message containing the Product ID
+message ProductID { string id = 1; }
+
+// The request message containing the Image.
+message Image {
+  string id = 1;
+  string productId = 2;
+  bytes image = 3;
+}
+
+// The request message containing the Image ID.
+message ImageID {
+  string id = 1;
+  string productId = 2;
+}
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

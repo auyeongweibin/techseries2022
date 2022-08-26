@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package prediction;
+
+import "proto/product.proto";
+
+// The prediction service definition.
+service PredictionService {
+  // Get similar products
+  rpc GetSimilarProducts(product.ProductID) returns (SimilarProductsResponse) {}
+
+  // Get similar categories
+  rpc GetSimilarCategories(ProductDetails) returns (CategoryPredictionResponse) {}
+}
+
+message CategoryPredictionResponse { repeated  CategoryPrediction categoryPredictions = 1; }
+
+message SimilarProductsResponse { repeated ProductPrediction productPrediction = 1; }
+
+// The request message containing the Product details.
+message ProductDetails {
+  string title = 1;
+  string description = 2;
+}
+
+message Categories { repeated string categories = 1; }
+
+message CategoryPrediction {
+  string category = 1;
+  float score = 2;
+}
+
+message ProductPrediction {
+  string productID = 1;
+  float score = 2;
+}
