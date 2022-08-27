@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <first-page />
+    <router-link to="/secondpage"></router-link>
   </div>
 </template>
 

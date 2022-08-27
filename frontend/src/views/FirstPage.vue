@@ -2,7 +2,7 @@
   <div class="firstPage">
     <h1><i>Anna's Steam Fresh Meat's Insurance Page</i></h1>
 
-    <FormKit type="form" v-model="formData" @submit="hello">
+    <FormKit type="form" v-model="formData">
       <div class="form-body">
         <h3>Search Insurance</h3>
 
@@ -128,19 +128,17 @@
           label="Terms of service"
           validation="accepted"
         />
-        <!-- <details>
-          <summary>Form data</summary>
-          <pre>{{ value }}</pre>
-        </details> -->
       </div>
-
-      <!-- <button type="button" @click="hello">Submit</button> -->
     </FormKit>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+// import { useRouter } from 'vue-router'
+
+// const route = useRoute()
+// const router = useRouter()
 
 export default {
   data() {
@@ -158,18 +156,11 @@ export default {
       },
     };
   },
-  // watch: {
-  //   chronicDisease(value) {
-  //     if (value === "Yes") {
-  //       console.log(value);
-  //     }
-  //   },
+  // methods: {
+  //   secondPage() {
+  //     router.push('/secondpage')
+  //   }
   // },
-  methods: {
-    hello() {
-      console.log(this.formData);
-    },
-  },
   mounted() {
     axios
       .post(
