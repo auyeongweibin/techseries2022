@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import FirstPage from './components/FirstPage'
+import FirstPage from './views/FirstPage'
 export default {
   components: {
     FirstPage
