@@ -11,7 +11,7 @@
           type="date"
           value="1969-11-11"
           label="Date of Birth"
-          validation="required|date_before: 2010-01-01|date_after: 1910-01-01"
+          validation="required|date_before: 2001-01-01|date_after: 1910-01-01"
           validation-visibility="live"
         />
 
