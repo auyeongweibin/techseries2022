@@ -2,7 +2,7 @@
   <div class="firstPage">
     <h1><i>Anna's Steam Fresh Meat's Insurance Page</i></h1>
     <!-- <FormKit type="form" #default="{ value }"> -->
-    <FormKit type="form" >
+    <FormKit type="form">
       <div class="form-body">
         <h3>Search Insurance</h3>
 
@@ -46,7 +46,12 @@
           validation="required"
           validation-label="Field"
           validation-visibility="live"
-          :options="['Direct Purchase Insurance Products', 'Term Life Products', 'Whole Life Products', 'Endowment Products']"
+          :options="[
+            'Direct Purchase Insurance Products',
+            'Term Life Products',
+            'Whole Life Products',
+            'Endowment Products',
+          ]"
         />
 
         <FormKit
@@ -75,7 +80,12 @@
         <FormKit
           type="checkbox"
           label="Coverage Term"
-          :options="['0 to 5 Years', '6 to 10 Years', '11 to 15 Years', '16 to 20 Years']"
+          :options="[
+            '0 to 5 Years',
+            '6 to 10 Years',
+            '11 to 15 Years',
+            '16 to 20 Years',
+          ]"
           help="Select the number of years you would like to spread the payment of premiums over."
           validation="required|min:1"
         />
@@ -97,25 +107,33 @@
 
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-    data() {
-        return {
-          formData:{
-            birthday: "",
-            gender: "",
-            smoker: "",
-            insuranceType: "",
-            premiumType: "",
-            sumAssured: "",
-          }
-        }
-    },
-    mounted() {
+  data() {
+    return {
+      formData: {
+        birthday: "",
+        gender: "",
+        smoker: "",
+        insuranceType: "",
+        premiumType: "",
+        sumAssured: "",
+      },
+    };
+  },
+  mounted() {
     axios
-      .post('http://techseries2022backend-env.eba-waamuq9p.ap-southeast-1.elasticbeanstalk.com/dev/policies', this.formData)
+      .post(
+        "http://techseries2022backend-env.eba-waamuq9p.ap-southeast-1.elasticbeanstalk.com/dev/policies",
+        this.formData
+      )
       .then((response) => console.log(response))
-  }
-}
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+};
 </script>
