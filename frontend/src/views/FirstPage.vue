@@ -97,17 +97,25 @@
 
 
 <script>
+import axios from 'axios'
+
 export default {
     data() {
         return {
+          formData:{
             birthday: "",
             gender: "",
             smoker: "",
             insuranceType: "",
             premiumType: "",
             sumAssured: "",
-            
-        };
-    }
+          }
+        }
+    },
+    mounted() {
+    axios
+      .post('http://techseries2022backend-env.eba-waamuq9p.ap-southeast-1.elasticbeanstalk.com/dev/policies', this.formData)
+      .then((response) => console.log(response))
+  }
 }
 </script>
