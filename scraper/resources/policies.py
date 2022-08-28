@@ -16,5 +16,19 @@ class Policies(Resource):
                 "Premium Type": "Annual Premium",
                 "Product Summary": "https://www.comparefirst.sg/wap/prodSummaryPdf/201106386R/WA_Sum_201106386R_ESI10P_Jan2022.pdf",
                 "Features": [False, True, False, False, True],
+            },
+            {
+                "Company": "AIA Singapore",
+                "Policy Name": "AIA Elite Secure Income (5 Pay)",
+                "Premium Type": "Annual Premium",
+                "Product Summary": "https://www.comparefirst.sg/wap/prodSummaryPdf/201106386R/WA_Sum_201106386R_ESI5P_Jan2022.pdf",
+                "Features": [False, True, False, False, True],
+            },
+            {
+                "Company": "AIA Singapore",
+                "Policy Name": "AIA Elite Secure Income (Single Pay)",
+                "Premium Type": "Annual Premium",
+                "Product Summary": "https://www.comparefirst.sg/wap/prodSummaryPdf/201106386R/WA_Sum_201106386R_ESISP_Jan2022.pdf",
+                "Features": [False, True, True, False, True],
             })
         return {"Policies": policies}, 200
