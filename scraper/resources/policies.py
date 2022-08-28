@@ -9,5 +9,12 @@ class Policies(Resource):
 
     def post(self):
         # json_data = request.get_json(force=True)
-
-        return {"Message": "Here are your recommended policies"}, 200
+        policies = []
+        policies.append({
+                "Company": "AIA Singapore",
+                "Policy Name": "AIA Elite Secure Income (10 Pay)",
+                "Premium Type": "Annual Premium",
+                "Product Summary": "https://www.comparefirst.sg/wap/prodSummaryPdf/201106386R/WA_Sum_201106386R_ESI10P_Jan2022.pdf",
+                "Features": [False, True, False, False, True],
+            })
+        return {"Policies": policies}, 200
