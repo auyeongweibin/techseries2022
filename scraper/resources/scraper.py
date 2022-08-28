@@ -3,6 +3,7 @@ from urllib.request import Request, urlopen
 from flask_restful import Resource
 from selenium import webdriver
 import chromedriver_binary
+import boto3
 
 class Scraper(Resource):
 

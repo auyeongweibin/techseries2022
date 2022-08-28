@@ -1,5 +1,21 @@
 from flask import Flask, send_from_directory
 from flask_cors import CORS
+from boto3 import client, resource
+from config import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, REGION_NAME
+
+client = client(
+    'dynamodb',
+    aws_access_key_id     = AWS_ACCESS_KEY_ID,
+    aws_secret_access_key = AWS_SECRET_ACCESS_KEY,
+    region_name           = REGION_NAME,
+)
+
+resource = resource(
+    'dynamodb',
+    aws_access_key_id     = AWS_ACCESS_KEY_ID,
+    aws_secret_access_key = AWS_SECRET_ACCESS_KEY,
+    region_name           = REGION_NAME,
+)
 
 def create_app(config_filename):
     application = app = Flask(__name__, static_url_path='')
