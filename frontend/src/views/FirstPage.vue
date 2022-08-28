@@ -81,7 +81,7 @@
           validation="required"
           validation-label="Field"
           validation-visibility="live"
-          :options="['Annual', 'Premium']"
+          :options="['Annual', 'Single']"
         />
 
         <FormKit
