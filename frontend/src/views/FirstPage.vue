@@ -157,7 +157,7 @@ export default {
         // .then((response) => console.log(response))
         .then(this.$router.push('/secondpage'))
         .catch((error) => {
-          console.log(error);
+          console.log(error.response.data);
           this.errored = true;
         })
         .finally(() => (this.loading = false));
