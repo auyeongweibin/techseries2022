@@ -188,7 +188,7 @@ export default {
     submitHandler() {
       axios
         .post(
-          "htts://techseries2022backend-env.eba-waamuq9p.ap-southeast-1.elasticbeanstalk.com/dev/policies",
+          "https://techseries2022backend-env.eba-waamuq9p.ap-southeast-1.elasticbeanstalk.com/dev/policies",
           this.formData
         )
         // .then((response) => console.log(response))
