@@ -1,10 +1,11 @@
 <template>
-  <div class="firstPage">
-    <h1><i>Anna's Steam Fresh Meat's Insurance Page</i></h1>
-
-    <FormKit type="group" v-model="formData">
-      <div class="form-body">
-        <h3>Search Insurance</h3>
+  <div class="firstPage" >
+    <h1 style="text-align: center;">
+      Marcus Insurance
+      </h1>
+    <FormKit type="group" v-model="formData" @click="clickMe">
+      <div class="form-body" style="margin: auto; width: 340px; text-align:left;">
+        
 
         <FormKit
           type="date"
