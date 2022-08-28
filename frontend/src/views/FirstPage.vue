@@ -1,8 +1,14 @@
 <template>
   <div class="firstPage" >
-    <h1 style="text-align: center;">
+    
+    <div class = "header">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
+      <h1>
       Marcus Insurance
       </h1>
+    </div>
+    
+
     <FormKit type="group" v-model="formData" @click="clickMe">
       <div class="form-body" style="margin: auto; width: 340px; text-align:left;">
         
@@ -128,6 +134,20 @@
     </FormKit>
   </div>
 </template>
+
+<style>
+  
+  .header {
+  margin-bottom: 25px;
+  padding: 15px;
+  text-align: center;
+  background: #7399c6;
+  color: #22263f;
+  font-size: 25px;
+  font-family: 'Poppins',sans-serif;
+  }
+  
+</style>
 
 <script>
 import axios from "axios";
