@@ -163,6 +163,17 @@
   font-size: 16px;
   
   }
+  
+  [data-type="submit"] .formkit-input {
+    justify-content: center;
+    align-items: center;
+    background-color: #7399c6; /* Green */
+    border: none;
+    padding: 15px 400px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+  }
 </style>
 
 <script>
