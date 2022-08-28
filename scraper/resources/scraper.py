@@ -4,15 +4,11 @@ from flask_restful import Resource
 from selenium import webdriver
 import chromedriver_binary
 import boto3
+from application import policies_db
 
 class Scraper(Resource):
 
     def get(self):
-
-        results = []
-
-        #TODO: Connect to RDS
-
         # URL to scrape
         url="https://www.comparefirst.sg/wap/productsListEvent.action?prodGroup=invst&pageAction=prodlisting"
         browser = webdriver.Chrome()
@@ -46,10 +42,7 @@ class Scraper(Resource):
                 else:
                     if div.a is not None:
                         temp["Product Summary"] = "https://www.comparefirst.sg/wap/" + div.a["href"]
-            # #TODO: Check if policy in database, and add it if it isn't
-            results.append(temp)
 
-        return {
-            "Message": f"Successfully inserted {len(results)} articles into the DB",
-            "Policies": results
-        }, 200
+            policies_db.put_item(Item=temp)
+
+        return {"Message": "Successfully inserted articles into the DB"}, 200

@@ -17,6 +17,8 @@ resource = resource(
     region_name           = REGION_NAME,
 )
 
+policies_db = resource.Table('Policies')
+
 def create_app(config_filename):
     application = app = Flask(__name__, static_url_path='')
     application.config.from_object(config_filename)
