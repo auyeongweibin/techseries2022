@@ -9,7 +9,7 @@
     </div>
     
 
-    <FormKit type="group" v-model="formData" @click="clickMe">
+    <FormKit type="form" v-model="formData" @submit="submitHandler">
       <div class="form-body" style="margin: auto; width: 340px; text-align:left;">
         
 
@@ -130,9 +130,9 @@
         />
       </div>
 
-      <div class="submit-button">
+      <!-- <div class="submit-button">
         <button type="submit" @click="submitHandler()">Submit</button>
-      </div>
+      </div> -->
 
     </FormKit>
   </div>
