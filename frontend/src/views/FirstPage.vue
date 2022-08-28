@@ -2,7 +2,7 @@
   <div class="firstPage">
     <h1><i>Anna's Steam Fresh Meat's Insurance Page</i></h1>
 
-    <FormKit type="group" v-model="formData" @click="clickMe">
+    <FormKit type="group" v-model="formData">
       <div class="form-body">
         <h3>Search Insurance</h3>
 
@@ -123,7 +123,7 @@
         />
       </div>
 
-      <button type="submit" @click="submitReq()">Submit</button>
+      <button type="submit" @click="submitHandler()">Submit</button>
     </FormKit>
   </div>
 </template>
@@ -148,13 +148,14 @@ export default {
     };
   },
   methods: {
-    submitReq() {
+    submitHandler() {
       axios
         .post(
           "http://techseries2022backend-env.eba-waamuq9p.ap-southeast-1.elasticbeanstalk.com/dev/policies",
           this.formData
         )
-        .then((response) => console.log(response))
+        // .then((response) => console.log(response))
+        .then(this.$router.push('/secondpage'))
         .catch((error) => {
           console.log(error);
           this.errored = true;
