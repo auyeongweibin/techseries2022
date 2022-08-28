@@ -1,15 +1,7 @@
 <template>
-  <div id="app">
-    <first-page />
-    <router-link to="/secondpage"></router-link>
-  </div>
+  <first-page/>
 </template>
 
-<script>
-import FirstPage from './views/FirstPage'
-export default {
-  components: {
-    FirstPage
-  }
-};
-</script>
+<style>
+
+</style>

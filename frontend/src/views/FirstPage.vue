@@ -2,7 +2,7 @@
   <div class="firstPage">
     <h1><i>Anna's Steam Fresh Meat's Insurance Page</i></h1>
 
-    <FormKit type="form" v-model="formData">
+    <FormKit type="group" v-model="formData" @click="clickMe">
       <div class="form-body">
         <h3>Search Insurance</h3>
 
@@ -110,18 +110,11 @@
           validation="required"
           validation-label="Field"
           validation-visibility="live"
-          :options="['Yes', 'No']"
+          :options="[{ label: 'Yes', value: 'Yes' }, 'No']"
           name="chronicDisease"
         />
 
-        <!-- <p>Do you have any chronic diseases?</p>
-        <select v-model="chronicDisease">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-        <br /><br /> -->
-
-        <chronic-disease v-if="chronicDisease === 'Yes'" />
+        <!-- <chronic-disease v-if="chronicDisease === 'Yes'" /> -->
         <br />
         <FormKit
           type="checkbox"
@@ -129,16 +122,14 @@
           validation="accepted"
         />
       </div>
+
+      <button type="submit" @click="submitReq()">Submit</button>
     </FormKit>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-// import { useRouter } from 'vue-router'
-
-// const route = useRoute()
-// const router = useRouter()
 
 export default {
   data() {
@@ -156,23 +147,21 @@ export default {
       },
     };
   },
-  // methods: {
-  //   secondPage() {
-  //     router.push('/secondpage')
-  //   }
-  // },
-  mounted() {
-    axios
-      .post(
-        "http://techseries2022backend-env.eba-waamuq9p.ap-southeast-1.elasticbeanstalk.com/dev/policies",
-        this.formData
-      )
-      .then((response) => console.log(response))
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+  methods: {
+    submitReq() {
+      axios
+        .post(
+          "http://techseries2022backend-env.eba-waamuq9p.ap-southeast-1.elasticbeanstalk.com/dev/policies",
+          this.formData
+        )
+        .then((response) => console.log(response))
+        .catch((error) => {
+          console.log(error);
+          this.errored = true;
+        })
+        .finally(() => (this.loading = false));
+    },
   },
+  mounted() {},
 };
 </script>
