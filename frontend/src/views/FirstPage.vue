@@ -130,7 +130,10 @@
         />
       </div>
 
-      <button type="submit" @click="submitHandler()">Submit</button>
+      <div class="submit-button">
+        <button type="submit" @click="submitHandler()">Submit</button>
+      </div>
+
     </FormKit>
   </div>
 </template>
@@ -142,11 +145,24 @@
   padding: 15px;
   text-align: center;
   background: #7399c6;
-  color: #22263f;
+  color: white;
   font-size: 25px;
   font-family: 'Poppins',sans-serif;
   }
   
+  .submit-button {
+    margin-top: 30px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7399c6; /* Green */
+  border: none;
+  padding: 28px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  
+  }
 </style>
 
 <script>
