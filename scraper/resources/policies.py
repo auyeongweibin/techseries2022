@@ -9,7 +9,8 @@ class Policies(Resource):
         return {"Message": "Please use post method instead."}, 200
 
     def post(self):
-        # json_data = request.get_json(force=True)
+        json_data = request.get_json(force=True)
+        
         response = policies_db.scan()
         data = response['Items']
 

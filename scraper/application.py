@@ -32,6 +32,10 @@ def create_app(config_filename):
 
 application = app =  create_app("config")
 
+@application.route('/.well-known/<path:path>')
+def send_js(path):
+    return send_from_directory('.well-known', path)
+
 @application.route('/', methods=['GET'])
 def index():
     return 'Api Running...'
