@@ -25,7 +25,7 @@ class Scraper(Resource):
         soup = BeautifulSoup(html_doc, 'html.parser')
 
         # Find all <li> tags with the specified class
-        for policy in soup.find_all('li'):
+        for policy in soup.find_all('li', class_=""):
             temp = {
                 "Company": "",
                 "Policy Name": "",
